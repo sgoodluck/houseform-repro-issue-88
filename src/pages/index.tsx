@@ -1,25 +1,35 @@
-import Head from "next/head";
 import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
 import { Field, Form } from "houseform";
+import { z } from "zod";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
     <Form onSubmit={(values) => alert(JSON.stringify(values))}>
-      {({ submit }) => (
+      {({ isValid, submit, errors }) => (
         <div>
-          <Field name="username" initialValue={""}>
+          <Field
+            name="username"
+            initialValue={""}
+            onSubmitValidate={z.literal("hello")}
+          >
             {({ value, setValue, onBlur }) => (
-              <input
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-                onBlur={onBlur}
-              />
+              <>
+                <input
+                  value={value}
+                  onChange={(e) => setValue(e.target.value)}
+                  onBlur={onBlur}
+                />
+                {errors.map((error) => (
+                  <p key={error}>{error}</p>
+                ))}
+              </>
             )}
           </Field>
-          <button onClick={submit}>Submit</button>
+          <button disabled={!isValid} onClick={submit}>
+            Submit
+          </button>
         </div>
       )}
     </Form>
