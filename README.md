@@ -1,4 +1,4 @@
-Requirements:
+# Requirements
 
 1. Download and install `pnpm`
 2. Download and install `nvm`
