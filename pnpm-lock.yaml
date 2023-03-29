@@ -6,7 +6,7 @@ specifiers:
   '@types/react-dom': 18.0.11
   eslint: 8.37.0
   eslint-config-next: 13.2.4
-  houseform: ^1.9.0
+  houseform: git+https://github.com/houseform/houseform/tree/fix-form-value
   next: 13.2.4
   react: 18.2.0
   react-dom: 18.2.0
@@ -19,7 +19,7 @@ dependencies:
   '@types/react-dom': 18.0.11
   eslint: 8.37.0
   eslint-config-next: 13.2.4_bcnce6t2n5ss3lv2getliffzhq
-  houseform: 1.9.0_react@18.2.0+zod@3.21.4
+  houseform: github.com/houseform/houseform/318077fa6cbcb35f8de1f89ad0bbffeef2ad9abe_react@18.2.0+zod@3.21.4
   next: 13.2.4_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -1244,16 +1244,6 @@ packages:
       function-bind: 1.1.1
     dev: false
 
-  /houseform/1.9.0_react@18.2.0+zod@3.21.4:
-    resolution: {integrity: sha512-NKiqdSrKKXGoKnudKXdkzDP2BDn+cDCmXfA2a1nV3A3RhzmIlfmJfqlJe1CNBMgNBvLhLKDv8g8Lyx8xketmUg==}
-    peerDependencies:
-      react: '>=16.8.0'
-      zod: '>=3.9.0'
-    dependencies:
-      react: 18.2.0
-      zod: 3.21.4
-    dev: false
-
   /ignore/5.2.4:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
     engines: {node: '>= 4'}
@@ -2192,4 +2182,17 @@ packages:
 
   /zod/3.21.4:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
+    dev: false
+
+  github.com/houseform/houseform/318077fa6cbcb35f8de1f89ad0bbffeef2ad9abe_react@18.2.0+zod@3.21.4:
+    resolution: {tarball: https://codeload.github.com/houseform/houseform/tar.gz/318077fa6cbcb35f8de1f89ad0bbffeef2ad9abe}
+    id: github.com/houseform/houseform/318077fa6cbcb35f8de1f89ad0bbffeef2ad9abe
+    name: houseform
+    version: 0.0.0-development
+    peerDependencies:
+      react: '>=16.8.0'
+      zod: '>=3.9.0'
+    dependencies:
+      react: 18.2.0
+      zod: 3.21.4
     dev: false

@@ -6,28 +6,36 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <Form onSubmit={(values) => alert(JSON.stringify(values))}>
-      {({ isValid, submit, errors }) => (
+    <Form
+      onSubmit={(values) => {
+        alert("Form was submitted with: " + JSON.stringify(values));
+      }}
+    >
+      {({ isValid, isSubmitted, submit, errors }) => (
         <div>
           <Field
             name="username"
-            initialValue={""}
+            initialValue=""
+            onChangeValidate={z.literal("hello")}
             onSubmitValidate={z.literal("hello")}
           >
-            {({ value, setValue, onBlur }) => (
-              <>
-                <input
-                  value={value}
-                  onChange={(e) => setValue(e.target.value)}
-                  onBlur={onBlur}
-                />
-                {errors.map((error) => (
-                  <p key={error}>{error}</p>
-                ))}
-              </>
-            )}
+            {({ value, setValue, onBlur }) => {
+              return (
+                <div>
+                  <input
+                    value={value}
+                    onBlur={onBlur}
+                    onChange={(e) => setValue(e.target.value)}
+                    placeholder={"expects: hello"}
+                  />
+
+                  {isSubmitted &&
+                    errors.map((error) => <p key={error}>{error}</p>)}
+                </div>
+              );
+            }}
           </Field>
-          <button disabled={!isValid} onClick={submit}>
+          <button disabled={isSubmitted && !isValid} onClick={submit}>
             Submit
           </button>
         </div>
